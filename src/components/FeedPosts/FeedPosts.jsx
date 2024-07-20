@@ -41,10 +41,18 @@ function FeedPosts() {
           </VStack>
         ))}
 
-      <FeedPost img="/img1.png" username="asaprogramer_" avatar="/img1.png" />
-      <FeedPost img="/img2.png" username="burakomaz" avatar="/img2.png" />
-      <FeedPost img="/img3.png" username="josh__" avatar="/img3.png" />
-      <FeedPost img="/img4.png" username="_janedoooo_" avatar="/img4.png" />
+      {!isLoading && (
+        <>
+          <FeedPost
+            img="/img1.png"
+            username="asaprogramer_"
+            avatar="/img1.png"
+          />
+          <FeedPost img="/img2.png" username="burakomaz" avatar="/img2.png" />
+          <FeedPost img="/img3.png" username="josh__" avatar="/img3.png" />
+          <FeedPost img="/img4.png" username="_janedoooo_" avatar="/img4.png" />
+        </>
+      )}
     </Container>
   );
 }
