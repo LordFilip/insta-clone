@@ -10,6 +10,7 @@ import {
 
 import { AiFillHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
+import useLogout from "../../hooks/useLogout";
 
 const Sidebar = () => {
   const sidebarItems = [
@@ -39,7 +40,7 @@ const Sidebar = () => {
       link: "/asaprogrammer",
     },
   ];
-
+  const { handleLogout, isLoggingOut, error } = useLogout();
   return (
     <Box
       height={"100vh"}
@@ -100,8 +101,7 @@ const Sidebar = () => {
           display={{ base: "block", md: "none" }}
         >
           <Flex
-            as={RouterLink}
-            to={"/auth"}
+            onClick={handleLogout}
             alignItems={"center"}
             gap={4}
             borderRadius={6}
@@ -116,7 +116,7 @@ const Sidebar = () => {
             <BiLogOut size={25} />
             <Button
               display={{ base: "none", md: "block" }}
-              variant="unstyled" // Remove default button styling
+              variant="ghost" // Remove default button styling
               _hover={{ bg: "transparent", boxShadow: "none" }} // Remove hover effects
               _focus={{ boxShadow: "none" }} // Remove focus shadow
               border="none" // Remove border
